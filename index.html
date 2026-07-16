@@ -3,23 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="온라인 비하 표현과 커뮤니티식 조롱 표현을 문맥에 따라 점검하고 더 존중하는 표현을 제안하는 학습용 웹사이트" />
-  <title>말결 2.0 | 맥락을 살피는 표현 순화 도우미</title>
+  <meta name="description" content="온라인 비하 표현과 조롱 문화를 문맥에 따라 점검하고 더 존중하는 표현을 제안하는 교육용 웹사이트" />
+  <title>말결 3.0 | 맥락을 읽는 언어 순화 도우미</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <main class="page">
     <header class="hero">
-      <div class="logo">말결</div>
-      <p class="eyebrow">맥락을 살피는 표현 순화 도우미</p>
-      <h1>사소한 말투도<br />어디에서 왔는지 살펴봐요.</h1>
+      <div class="brand-row">
+        <div class="logo">말결</div>
+        <span class="version">3.0</span>
+      </div>
+      <p class="eyebrow">맥락을 읽는 언어 순화 도우미</p>
+      <h1>무심코 쓴 말도<br />어디에서 왔는지 살펴봐요.</h1>
       <p class="intro">
-        직접적인 혐오표현뿐 아니라 조롱 문화에서 퍼진 인터넷식 말투도 점검합니다.
-        다만 방언이나 정체성을 설명하는 정상적인 표현은 문맥을 구분해 안내합니다.
+        직접적인 혐오표현뿐 아니라 온라인 조롱 문화에서 퍼진 말투와 호칭도 점검합니다.
+        방언이나 정체성을 설명하는 정상적인 표현은 문맥을 구분해 안내합니다.
       </p>
     </header>
 
-    <section class="card">
+    <section class="card input-card">
       <div class="section-heading">
         <div>
           <p class="step">STEP 01</p>
@@ -29,11 +32,14 @@
       </div>
 
       <textarea id="inputText" maxlength="300"
-        placeholder="예: 오늘 진짜 웃기노 이기. 게이야 이것 좀 봐라."></textarea>
+        placeholder="예: 개웃기노 이기. 게이야 이것 좀 봐라."></textarea>
 
       <div class="input-footer">
         <span id="charCount">0 / 300</span>
-        <button id="checkButton" class="primary-button" type="button">표현 점검하기</button>
+        <div class="button-row">
+          <button id="clearButton" class="ghost-button" type="button">지우기</button>
+          <button id="checkButton" class="primary-button" type="button">표현 점검하기</button>
+        </div>
       </div>
     </section>
 
@@ -43,13 +49,16 @@
           <p class="step">STEP 02</p>
           <h2>점검 결과</h2>
         </div>
-        <div class="temperature">
+        <div class="temperature-card">
           <span>말의 온도</span>
           <strong id="scoreText">100점</strong>
+          <small id="scoreLabel">존중 표현</small>
         </div>
       </div>
 
-      <div class="meter"><div id="meterBar"></div></div>
+      <div class="meter">
+        <div id="meterBar"></div>
+      </div>
 
       <div id="statusBox" class="status-box">
         <span id="statusIcon" class="status-icon">✓</span>
@@ -59,36 +68,68 @@
         </div>
       </div>
 
-      <div class="highlight-box">
-        <h3>표현 표시</h3>
+      <section class="highlight-box">
+        <div class="mini-heading">
+          <h3>표현 표시</h3>
+          <span class="legend"><i class="dot context-dot"></i>문맥 확인 <i class="dot warning-dot"></i>주의 <i class="dot danger-dot"></i>강한 비하</span>
+        </div>
         <p id="highlightedText"></p>
-      </div>
+      </section>
 
-      <div class="result-grid">
-        <article class="result-item">
-          <h3>살펴볼 부분</h3>
-          <div id="issueList"></div>
-        </article>
+      <section class="analysis-section">
+        <div class="mini-heading">
+          <h3>발견된 표현</h3>
+          <span id="findingCount" class="count-badge">0개</span>
+        </div>
+        <div id="findingCards" class="finding-cards"></div>
+      </section>
 
-        <article class="result-item recommendation">
+      <section class="recommendation-section">
+        <div class="mini-heading">
           <h3>추천 표현</h3>
-          <div id="suggestionList"></div>
           <button id="copyButton" class="secondary-button" type="button">첫 번째 문장 복사</button>
-        </article>
-      </div>
+        </div>
+        <div id="suggestionList" class="suggestion-list"></div>
+      </section>
+
+      <details class="why-box">
+        <summary>왜 이런 표현을 점검해야 할까요?</summary>
+        <p>
+          혐오와 조롱은 강한 욕설로만 시작되지 않습니다. 유래를 모른 채 반복하는 말투나 호칭도
+          특정 인물과 집단을 희화화하는 문화를 자연스럽게 만들 수 있습니다. 말결은 표현을 금지하기보다
+          그 유래와 맥락을 알고 더 정확한 말로 바꾸도록 돕는 것을 목표로 합니다.
+        </p>
+      </details>
+    </section>
+
+    <section class="guide-grid">
+      <article class="guide-card">
+        <span>01</span>
+        <h3>직접 비하</h3>
+        <p>집단을 낮춰 부르는 단어를 찾아 설명합니다.</p>
+      </article>
+      <article class="guide-card">
+        <span>02</span>
+        <h3>조롱 문화 파생 표현</h3>
+        <p>추임새와 인터넷식 호칭의 사용 맥락을 살펴봅니다.</p>
+      </article>
+      <article class="guide-card">
+        <span>03</span>
+        <h3>방언·중립 표현 구분</h3>
+        <p>‘-노’와 ‘게이’처럼 다른 의미가 가능한 표현은 단정하지 않습니다.</p>
+      </article>
     </section>
 
     <section class="notice">
-      <h2>이 사이트의 기준</h2>
+      <h2>알아두기</h2>
       <p>
-        이 도구는 표현의 맥락을 돕기 위한 학습용 프로그램입니다. ‘-노’는 실제 경상도 방언일 수 있고,
-        ‘게이’는 성적 지향을 나타내는 중립적인 말일 수 있습니다. 따라서 단어 하나만으로 사람이나 문장을
-        단정하지 않고, 인터넷식 추임새·호칭·집단 일반화 여부를 함께 살펴봅니다.
+        이 도구는 발표와 학습을 위한 규칙 기반 프로토타입입니다. 법적 판정이나 사람에 대한 평가에 사용할 수 없으며,
+        실제 의미는 화자·지역·관계·상황에 따라 달라질 수 있습니다.
       </p>
     </section>
   </main>
 
-  <footer>말결 2.0 · 표현의 유래와 맥락까지 생각하는 언어 도구</footer>
+  <footer>말결 3.0 · 말을 지우기보다 더 나은 방향으로 다듬습니다.</footer>
   <script src="script.js"></script>
 </body>
 </html>
