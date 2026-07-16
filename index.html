@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="일상 속 편견과 혐오 가능성이 있는 표현을 살펴보고 더 존중하는 표현을 제안하는 웹사이트" />
+  <title>말결 | 표현 순화 도우미</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <div class="logo" aria-hidden="true">말결</div>
+      <p class="eyebrow">존중하는 말로 다시 쓰기</p>
+      <h1>말의 뜻은 살리고,<br />상처가 될 표현은 덜어내요.</h1>
+      <p class="intro">
+        일상 문장에 담긴 편견이나 일반화 가능성을 살펴보고
+        더 구체적이고 존중하는 표현을 제안합니다.
+      </p>
+    </header>
+
+    <section class="card" aria-labelledby="checker-title">
+      <div class="section-heading">
+        <div>
+          <p class="step">STEP 01</p>
+          <h2 id="checker-title">문장을 입력해 주세요</h2>
+        </div>
+        <button id="exampleButton" class="text-button" type="button">예시 불러오기</button>
+      </div>
+
+      <label class="sr-only" for="inputText">점검할 문장</label>
+      <textarea
+        id="inputText"
+        maxlength="300"
+        placeholder="예: 요즘 애들은 책임감이 없어."
+      ></textarea>
+
+      <div class="input-footer">
+        <span id="charCount">0 / 300</span>
+        <button id="checkButton" class="primary-button" type="button">
+          표현 점검하기
+        </button>
+      </div>
+    </section>
+
+    <section id="resultSection" class="card result-card hidden" aria-live="polite">
+      <p class="step">STEP 02</p>
+      <h2>점검 결과</h2>
+
+      <div id="statusBox" class="status-box">
+        <span id="statusIcon" class="status-icon" aria-hidden="true">✓</span>
+        <div>
+          <strong id="statusTitle"></strong>
+          <p id="statusDescription"></p>
+        </div>
+      </div>
+
+      <div id="analysisArea" class="result-grid">
+        <article class="result-item">
+          <h3>살펴볼 부분</h3>
+          <div id="issueList"></div>
+        </article>
+
+        <article class="result-item recommendation">
+          <h3>추천 표현</h3>
+          <p id="suggestedText" class="suggested-text"></p>
+          <button id="copyButton" class="secondary-button" type="button">
+            추천 문장 복사
+          </button>
+        </article>
+      </div>
+    </section>
+
+    <section class="notice">
+      <h2>알아두기</h2>
+      <p>
+        이 도구는 미리 등록된 표현과 문장 유형을 바탕으로 결과를 보여주는
+        학습용 프로그램입니다. 실제 의미는 상황과 맥락에 따라 달라질 수 있으므로
+        사람을 단정하거나 처벌하는 용도로 사용하지 않습니다.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>말결 · 표현을 지우기보다 더 정확하고 존중하는 말로 바꿉니다.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
