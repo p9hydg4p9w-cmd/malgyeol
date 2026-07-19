@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="온라인 혐오·비하 표현과 커뮤니티식 말투를 점검하고 더 존중하는 표현을 제안하는 학습용 웹사이트" />
-  <title>말결 4.0</title>
-  <link rel="stylesheet" href="style.css?v=4.0" />
+  <meta name="description" content="온라인 혐오·비하·조롱·비격식 표현을 맥락별로 분석하고 더 존중하는 표현을 제안하는 교육용 웹사이트" />
+  <title>말결 5.0</title>
+  <link rel="stylesheet" href="style.css?v=5.0" />
 </head>
 <body>
   <main class="page">
     <header class="hero">
-      <div class="brand">말결 <span>4.0</span></div>
-      <p class="eyebrow">맥락을 살피는 표현 순화 도우미</p>
-      <h1>무심코 쓴 말도<br>어디에서 왔는지 살펴봐요.</h1>
+      <div class="brand">말결 <span>5.0</span></div>
+      <p class="eyebrow">맥락을 살피는 언어 순화 도우미</p>
+      <h1>말을 지우기보다<br>더 나은 방향으로 다듬어요.</h1>
       <p class="intro">
-        온라인 비하 표현과 조롱 문화에서 퍼진 말투를 찾아
-        더 구체적이고 존중하는 표현을 제안합니다.
+        직접적인 비하 표현부터 집단 일반화, 조롱 문화에서 퍼진 말투,
+        거친 인터넷 은어까지 유형을 나누어 분석합니다.
       </p>
     </header>
 
@@ -28,10 +28,11 @@
         <button id="exampleBtn" class="text-btn">예시 불러오기</button>
       </div>
 
-      <textarea id="inputText" maxlength="300" placeholder="예: 개웃기노 이기. 게이야 이것 좀 봐라."></textarea>
+      <textarea id="inputText" maxlength="400"
+        placeholder="예: 개웃기노 이기. 게이야 개추 박았다."></textarea>
 
       <div class="input-row">
-        <span id="count">0 / 300</span>
+        <span id="count">0 / 400</span>
         <div>
           <button id="clearBtn" class="sub-btn">지우기</button>
           <button id="analyzeBtn" class="main-btn">표현 점검하기</button>
@@ -48,6 +49,7 @@
         <div class="score-box">
           <span>말의 온도</span>
           <strong id="score">100점</strong>
+          <small id="scoreLabel">존중 표현</small>
         </div>
       </div>
 
@@ -61,6 +63,14 @@
       <div class="section-box">
         <h3>표현 표시</h3>
         <p id="highlighted"></p>
+      </div>
+
+      <div class="metric-grid">
+        <div class="metric"><span>존중성</span><strong id="respectMetric">100</strong></div>
+        <div class="metric"><span>공격성</span><strong id="attackMetric">0</strong></div>
+        <div class="metric"><span>일반화</span><strong id="generalMetric">0</strong></div>
+        <div class="metric"><span>은어성</span><strong id="slangMetric">0</strong></div>
+        <div class="metric"><span>공식성</span><strong id="formalMetric">100</strong></div>
       </div>
 
       <div class="section-box">
@@ -80,25 +90,32 @@
       </div>
 
       <details>
-        <summary>왜 이런 표현을 점검해야 할까요?</summary>
+        <summary>말결은 왜 모든 표현을 혐오표현이라고 부르지 않나요?</summary>
         <p>
-          혐오와 조롱은 강한 욕설로만 시작되지 않습니다. 뜻 없이 반복되는 말투나 호칭도
-          특정 인물과 집단을 희화화하는 문화를 자연스럽게 만들 수 있습니다.
+          집단 비하, 일반화, 개인 모욕, 거친 은어는 성격이 서로 다릅니다.
+          말결은 표현을 무조건 금지하지 않고 어떤 점을 조심해야 하는지 유형별로 설명합니다.
         </p>
       </details>
+    </section>
+
+    <section class="legend-card">
+      <span class="legend danger">직접 비하</span>
+      <span class="legend warning">일반화·조롱</span>
+      <span class="legend context">문맥 확인</span>
+      <span class="legend informal">비격식 은어</span>
+      <span class="legend rough">거친 표현</span>
     </section>
 
     <section class="notice">
       <strong>알아두기</strong>
       <p>
         이 도구는 발표와 학습을 위한 규칙 기반 프로토타입입니다.
-        ‘-노’는 실제 경상도 방언일 수 있고, ‘게이’는 성적 지향을 나타내는 중립적인 말일 수 있으므로
-        단어 하나만으로 혐오표현이라고 단정하지 않습니다.
+        실제 의미는 화자, 지역, 관계, 문장 전체의 맥락에 따라 달라질 수 있습니다.
       </p>
     </section>
   </main>
 
-  <footer>말결 · 말을 지우기보다 더 나은 방향으로 다듬습니다.</footer>
-  <script src="script.js?v=4.0"></script>
+  <footer>말결 · 표현을 검열하기보다 맥락을 이해하도록 돕습니다.</footer>
+  <script src="script.js?v=5.0"></script>
 </body>
 </html>
